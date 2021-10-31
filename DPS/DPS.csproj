@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B886B02A-A4D7-4231-9CBE-D6B7A0C7BB42}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DPS</RootNamespace>
+    <AssemblyName>DPS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GMaps, Version=4.1.0.5, Culture=neutral, PublicKeyToken=564d55b144e7aa5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\GMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="cadastro-cliente.aspx.cs">
+      <DependentUpon>cadastro-cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cadastro-cliente.aspx.designer.cs">
+      <DependentUpon>cadastro-cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cadastro-funcionario.aspx.cs">
+      <DependentUpon>cadastro-funcionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cadastro-funcionario.aspx.designer.cs">
+      <DependentUpon>cadastro-funcionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cadastro-rondas.aspx.cs">
+      <DependentUpon>cadastro-rondas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cadastro-rondas.aspx.designer.cs">
+      <DependentUpon>cadastro-rondas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Auditoria.cs" />
+    <Compile Include="Classes\Email.cs" />
+    <Compile Include="Classes\Endereco.cs" />
+    <Compile Include="Classes\Conexao.cs" />
+    <Compile Include="Classes\Senha.cs" />
+    <Compile Include="Classes\Validacao.cs" />
+    <Compile Include="consulta-auditoria.aspx.cs">
+      <DependentUpon>consulta-auditoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consulta-auditoria.aspx.designer.cs">
+      <DependentUpon>consulta-auditoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OnlineController.cs" />
+    <Compile Include="DAO\Cliente.cs" />
+    <Compile Include="DAO\Funcionario.cs" />
+    <Compile Include="DAO\Online.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="help.aspx.designer.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inicio.aspx.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inicio.aspx.designer.cs">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\Online.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="ocorrencias.aspx.cs">
+      <DependentUpon>ocorrencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ocorrencias.aspx.designer.cs">
+      <DependentUpon>ocorrencias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Online.aspx.cs">
+      <DependentUpon>Online.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Online.aspx.designer.cs">
+      <DependentUpon>Online.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rotas.aspx.cs">
+      <DependentUpon>Rotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rotas.aspx.designer.cs">
+      <DependentUpon>Rotas.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="boot4Beta\css\bootstrap-grid.css" />
+    <Content Include="boot4Beta\css\bootstrap-grid.min.css" />
+    <Content Include="boot4Beta\css\bootstrap-reboot.css" />
+    <Content Include="boot4Beta\css\bootstrap-reboot.min.css" />
+    <Content Include="boot4Beta\css\bootstrap.css" />
+    <Content Include="boot4Beta\css\bootstrap.min.css" />
+    <Content Include="boot4Beta\js\bootstrap.js" />
+    <Content Include="boot4Beta\js\bootstrap.min.js" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\npm.js" />
+    <Content Include="cadastro-cliente.aspx" />
+    <Content Include="cadastro-funcionario.aspx" />
+    <Content Include="cadastro-rondas.aspx" />
+    <Content Include="consulta-auditoria.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\loading.gif" />
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\gmaps-sidebar.css" />
+    <Content Include="css\sb-admin-2.css" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="functions.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="help.aspx" />
+    <Content Include="inicio.aspx" />
+    <Content Include="jquery-3.2.1.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Default.js" />
+    <Content Include="js\jquery-1.11.3.min.js" />
+    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="js\jquery.maskedinput.js" />
+    <Content Include="js\jquery\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery\jquery-1.3.2.js" />
+    <Content Include="js\jquery\jquery.dropdown.js" />
+    <Content Include="js\jquery\jquery.js" />
+    <Content Include="js\jquery\jquery.maskedinput.js" />
+    <Content Include="js\jquery\jquery.maskedinput.min.js" />
+    <Content Include="js\jquery\jquery.maskMoney.js" />
+    <Content Include="js\jquery\jquery.printElement.js" />
+    <Content Include="js\mascara.js" />
+    <Content Include="libs\export_canvas\base64.js" />
+    <Content Include="libs\export_canvas\canvas2image.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="obj\Release\DPS.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\DPS.dll" />
+    <Content Include="obj\Release\DPS.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Antlr3.Runtime.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DPS.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DPS.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\itextsharp.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\itextsharp.pdfa.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.Web.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\MySql.Data.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Net.Http.Formatting.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.Helpers.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.Http.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.Http.WebHost.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.Mvc.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.Optimization.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.Razor.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\pt-br\System.Web.WebPages.resources.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csc.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csi.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.AppContext.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Console.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Diagnostics.Process.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Threading.Thread.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\vbc.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Net.Http.Formatting.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Helpers.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Http.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Http.WebHost.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Mvc.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Razor.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.WebPages.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\WebGrease.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-grid.css" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-grid.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-reboot.css" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-reboot.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap.css" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\js\bootstrap.js" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\js\bootstrap.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\css\bootstrap.css" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\css\bootstrap.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\js\bootstrap.js" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\js\bootstrap.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\js\npm.js" />
+    <Content Include="obj\Release\Package\PackageTmp\cadastro-funcionario.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\bootstrap.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\bootstrap.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Site.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-grid.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-grid.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-reboot.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-reboot.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-theme.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-theme.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\custom.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\style.css" />
+    <Content Include="obj\Release\Package\PackageTmp\favicon.ico" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="obj\Release\Package\PackageTmp\functions.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Global.asax" />
+    <Content Include="obj\Release\Package\PackageTmp\inicio.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\jquery-3.2.1.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\bootstrap.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\bootstrap.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\Default.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery-1.11.3.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery-1.9.1.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery.maskedinput.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery-1.11.1.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery-1.3.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery.dropdown.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery.maskedinput.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery.maskedinput.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery.maskMoney.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\jquery\jquery.printElement.js" />
+    <Content Include="obj\Release\Package\PackageTmp\js\mascara.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Login.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\bootstrap.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\bootstrap.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.10.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.10.2.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\modernizr-2.6.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\respond.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\respond.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\style.css" />
+    <Content Include="obj\Release\_WPPLastBuildInfo.txt" />
+    <Content Include="ocorrencias.aspx" />
+    <Content Include="Online.aspx" />
+    <Content Include="Rotas.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="boot4Beta\css\bootstrap-grid.css.map" />
+    <Content Include="boot4Beta\css\bootstrap-grid.min.css.map" />
+    <Content Include="boot4Beta\css\bootstrap-reboot.css.map" />
+    <Content Include="boot4Beta\css\bootstrap-reboot.min.css.map" />
+    <Content Include="boot4Beta\css\bootstrap.css.map" />
+    <Content Include="boot4Beta\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Release\DPS.csproj.CopyComplete" />
+    <Content Include="obj\Release\DPS.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\DPS.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Release\Package\PackageTmp\ApplicationInsights.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\ApplicationInsights.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csc.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csc.rsp" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csi.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csi.rsp" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\vbc.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\vbc.rsp" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-grid.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-grid.min.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-reboot.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap-reboot.min.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\boot4Beta\css\bootstrap.min.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\css\bootstrap.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="obj\Release\Package\PackageTmp\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-grid.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-grid.min.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-reboot.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-reboot.min.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap-theme.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\css\bootstrap.min.css.map" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="obj\Release\Package\PackageTmp\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.10.2.min.map" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\About.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\Contact.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Home\Index.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\Error.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Shared\_Layout.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\Web.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Views\_ViewStart.cshtml" />
+    <Content Include="obj\Release\Package\PackageTmp\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\assist\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\original\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\transformed\Web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\gMapsUtil.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\maps.js" />
+    <Content Include="Scripts\maps_rota.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\util.js" />
+    <Content Include="style.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="tutorial.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\Release\ProfileTransformWebConfig\transformed\Views\" />
+    <Folder Include="obj\Release\TempPE\" />
+    <Folder Include="obj\Release\TransformWebConfig\transformed\Views\" />
+    <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\Funcionario\" />
+    <Folder Include="Views\Online\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65399</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6538/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
